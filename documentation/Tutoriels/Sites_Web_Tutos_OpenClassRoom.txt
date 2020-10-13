@@ -1,0 +1,17 @@
+﻿JAVA : https://openclassrooms.com/fr/courses/4975451-demarrez-votre-projet-avec-java/4975458-decouvrez-lunivers-java
+INSTALLER JAVA ET ECLIPSE : https://openclassrooms.com/fr/courses/6106191-installez-votre-environnement-de-developpement-java-avec-eclipse
+MAVEN : https://openclassrooms.com/fr/courses/4503526-organisez-et-packagez-une-application-java-avec-apache-maven
+TESTS : https://openclassrooms.com/fr/courses/6100311-testez-une-application-java
+GIT et GITHUB : https://openclassrooms.com/fr/courses/5641721-utilisez-git-pour-vos-projets-de-developpement
+SECURITE DU CODE AVEC OSWAP : https://openclassrooms.com/fr/courses/5162996-secure-your-web-development-with-owasp
+LINUX : https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-l-aide-de-linux
+LINUX : https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-laide-de-linux/37630-installez-linux-dans-une-machine-virtuelle
+LIGNE DE COMMANDE : https://openclassrooms.com/fr/courses/6173491-apprenez-a-utiliser-la-ligne-de-commande-terminal
+
+TUTORIEL MICROSERVICES : https://xebia.developpez.com/tutoriels/spring/patterns-microservices-springcloud/
+TUTORIEL MICROSERVICES : https://blog.engineering.publicissapient.fr/2019/08/08/patterns-de-microservices-avec-spring-cloud-1-2/
+TUTORIEL MICROSERVICES : https://insatunisia.github.io/TP-eServices/
+
+TUTORIEL COUVERTURE DE CODE ECLEMMA : http://www.jouvinio.net/wiki/index.php/Eclipse_plugin_Eclemma
+
+TUTORIELS MOHAMED YOUSSFI : https://www.youtube.com/user/mohamedYoussfi/videos?view=0&sort=dd&flow=grid
