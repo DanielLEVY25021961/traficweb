@@ -49,6 +49,27 @@
 		    </properties>
 		    <activation>
 		    	<!-- PROFIL ACTIF LORS DE L'EXECUTION -->
+		        <activeByDefault>false</activeByDefault>
+		    </activation>
+		    <build>
+			    <resources>
+			        <resource>
+			            <directory>src/main/resources</directory>
+			            <filtering>true</filtering>
+			        </resource>
+			    </resources>
+			</build>
+		</profile>
+		<!-- PROFIL NATIVE -->	
+		<profile>
+		    <id>native</id>
+		    <properties>
+		        <activatedProperties>native</activatedProperties>
+		        <spring.profiles.active>native</spring.profiles.active>
+        		<log4j.level>DEBUG</log4j.level>
+		    </properties>
+		    <activation>
+		    	<!-- PROFIL ACTIF LORS DE L'EXECUTION -->
 		        <activeByDefault>true</activeByDefault>
 		    </activation>
 		    <build>
@@ -97,10 +118,10 @@
 		</dependency>
 		
 		<!-- SPRING JSON FORMAT HATEOAS -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-hateoas</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.boot</groupId> -->
+<!-- 			<artifactId>spring-boot-starter-hateoas</artifactId> -->
+<!-- 		</dependency> -->
 	
 		<!-- SERVEUR DE CONFIGURATION -->
 		<dependency>
@@ -110,10 +131,10 @@
 		
 		
 		<!-- CLIENT ANNUAIRE DE MICRO-SERVICES (REGISTRY) EUREKA -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.cloud</groupId> -->
+<!-- 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId> -->
+<!-- 		</dependency> -->
 		
 		<!-- SPRING DEV TOOLS -->
 		<dependency>
