@@ -86,6 +86,9 @@
 		(projet SPRING BOOT ici) 	-->		
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		
+		<!-- SAUTER LES TESTS LORS DU BUILD MAVEN -->
+		<maven.test.skip>true</maven.test.skip>
+		
 		<!-- CLASSE APPLICATIVE POUR CREER UN JAR APPLICATIF -->
 		<!-- Ne jamais mettre d'extension. Le .java sera utilisé 
 		pour le BUILD -->
@@ -229,6 +232,27 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<!-- DOCUMENTATION DU MICRO-SERVICE -->
+		<!-- SWAGGER 2 pour SPRING-BOOT -->
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-boot-starter</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>io.springfox</groupId> -->
+<!-- 		    <artifactId>springfox-swagger2</artifactId> -->
+<!-- 		    <version>3.0.0</version> -->
+<!-- 		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>io.springfox</groupId> -->
+<!-- 		    <artifactId>springfox-swagger-ui</artifactId> -->
+<!-- 		    <version>3.0.0</version> -->
+<!-- 		</dependency> -->
+				
 	</dependencies>
 
 

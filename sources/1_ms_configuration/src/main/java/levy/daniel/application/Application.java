@@ -6,14 +6,20 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 /**
  * CLASSE Application :<br/>
- * Point d'entrée de l'application SPRING BOOT.<br/>
- * L'annotation <code>SpringBootApplication</code> déclare à SPRING 
- * qu'il s'agit de la classe APPLICATIVE.<br/>
- * L'annotation <code>EnableConfigServer</code> déclare à SPRING 
+ * <ul>
+ * <li>Point d'entrée de l'application SPRING BOOT.</li>
+ * <li>L'annotation <code>SpringBootApplication</code> déclare à SPRING 
+ * qu'il s'agit de la classe APPLICATIVE.</li>
+ * <li>L'annotation <code>EnableConfigServer</code> déclare à SPRING 
  * qu'il s'agit d'un MICRO-SERVICE TECHNIQUE de CENTRALISATION 
- * de la CONFIGURATION.<br/>
+ * de la CONFIGURATION.</li>
+ * <li>L'annotation <code>EnableSwagger2</code> déclare à SPRING 
+ * que l'on va générer la documentation du MICRO-SERVICE avec Swagger2.</li>
+ * </ul>
  * <br/>
  *
  * - Exemple d'utilisation :<br/>
@@ -31,6 +37,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  * @since 20 oct. 2020
  */
 @EnableConfigServer
+@EnableSwagger2
 @SpringBootApplication
 public class Application {  // NOPMD by dan on 20/10/2020 12:44
 
