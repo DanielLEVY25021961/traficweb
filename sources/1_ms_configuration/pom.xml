@@ -1,19 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		
+	        
+         <!-- ================================================== -->
+         <!-- 			POM pour MAVEN 3.5.0					 -->
+         <!-- 			Java 1.8.0_144							 -->
+         <!-- ================================================== -->
+         
+
+	<!-- Version du POM. -->
 	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- POM PARENT SPRING BOOT -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>levy.daniel.application</groupId>
-	<artifactId>1_ms_configuration</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>1_ms_configuration</name>
-	<description>Micro-Service TECHNIQUE de CONFIGURATION</description>
 
+	
+	<!-- ========================================================== -->
+	<!-- POM APPLICATIF FILS DE POM PARENT SPRING BOOT              -->
+	<!-- GAV (identifiant du projet)                                -->
+	<!-- G : groupId : nom de domaine                               -->
+	<!-- A : artifactId : nom du projet                             -->
+	<!-- V : version : version du projet                            -->
+	<!-- ========================================================== -->
+	
+	<!-- domaine (espace de nom) appelé GROUPE (G) dans Maven -->		
+	<groupId>levy.daniel.application</groupId>
+			
+	<!-- NOM DU FUTUR FUTUR LIVRABLE (JAR, WAR, POM, ...) généré 
+	appelé artifactId (A) dans Maven -->
+	<!-- également le nom du projet MAVEN JAVA généré dans ECLIPSE -->
+	<artifactId>1_ms_configuration</artifactId>
+	
+	<!-- VERSION DU FUTUR LIVRABLE (JAR, WAR, POM, ...) -->
+	<!-- Si Version Bêta de développement (SNAPSHOT) -->
+	<!--non incrémentée dans Maven -->	
+	<version>1.0.0</version>
+
+
+	<!-- ========================================================== -->
+	<!--                       PACKAGING                            -->
+	<!-- Préciser ici la forme du livrable                          -->
+	<!-- que le projet Maven doit produire (war, jar,               -->
+	<!--	POM, ...).                                              -->
+	<!-- ========================================================== -->
+	<!-- Résultat du Packaging (forme du livrable). Ici JAR -->
+	<packaging>jar</packaging>
+	
+	<!-- INTERVIENT DANS LES LOGS MAVEN LORS DU BUILD. 
+	Par exemple, "Building 'bidon_name' 0.0.1-SNAPSHOT" -->
+	<!-- N'interfère pas dans le nom du livrable créé. 
+	C'est artifactId qui compte. -->
+	<name>1_ms_configuration</name>
+	
+	<!-- Description de l'application générée par le projet Maven -->
+	<description>Micro-Service TECHNIQUE de CONFIGURATION</description>
+	
+	<!-- URL éventuelle permettant de se connecter à l'application -->
+	<url>http://${urlServer}:${portServer}</url>
+
+
+    <!-- ================================================ -->
+	<!--                    PROPERTIEs                    -->
+	<!-- Préciser ici les propriétés générales du projet. -->
+	<!-- ================================================ -->
 	<properties>
 	
 		<!-- version de Java -->
@@ -27,12 +82,20 @@
 		<!-- Encodage pourle Reporting (site web) -->
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		
-		<!-- Ne plante pas en cas d'absence de Web XML (projet SPRING) 	-->		
+		<!-- Ne plante pas en cas d'absence de Web XML utile pour un projet J2EE 
+		(projet SPRING BOOT ici) 	-->		
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		
+		<!-- CLASSE APPLICATIVE POUR CREER UN JAR APPLICATIF -->
+		<!-- Ne jamais mettre d'extension. Le .java sera utilisé 
+		pour le BUILD -->
+		<start-class>levy.daniel.application.Application</start-class>
+		
+		<!-- VERSION DE SPRING-CLOUD -->		
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 		
 	</properties>
+
 	
 	<!-- ======================================== -->
 	<!--                    PROFILS               -->
@@ -40,6 +103,8 @@
 	<profiles>
 	
 		<!-- PROFIL DEV -->	
+		<!-- A UTILISER LORS DU DEVELOPPEMENT en spécifiant l'URL localhost, 
+		les ports des micro-services, ... -->
 		<profile>
 		    <id>dev</id>
 		    <properties>
@@ -60,7 +125,9 @@
 			    </resources>
 			</build>
 		</profile>
-		<!-- PROFIL NATIVE -->	
+		
+		<!-- PROFIL NATIVE -->
+		<!-- UTILE POUR CREER UN STOCKAGE DES CONFIG NON "DEPOT GIT" -->	
 		<profile>
 		    <id>native</id>
 		    <properties>
@@ -81,7 +148,13 @@
 			    </resources>
 			</build>
 		</profile>
+		
 		<!-- PROFIL PROD -->
+		<!-- A UTILISER LORS DE LA PRODUCTION.
+		l'URL du serveur de PRODUCTION, 
+		les ports de PRODUCTION des micro-services, 
+		devront être passés dynamiquement -->
+		<!-- LE STOCKAGE DES CONFIG DEVRA ETRE UN DEPOT GIT. -->
 		<profile>
 		    <id>prod</id>
 		    <properties>
@@ -118,10 +191,10 @@
 		</dependency>
 		
 		<!-- SPRING JSON FORMAT HATEOAS -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.boot</groupId> -->
-<!-- 			<artifactId>spring-boot-starter-hateoas</artifactId> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
 	
 		<!-- SERVEUR DE CONFIGURATION -->
 		<dependency>
