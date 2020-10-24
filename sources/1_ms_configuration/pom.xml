@@ -117,7 +117,7 @@
 		    </properties>
 		    <activation>
 		    	<!-- PROFIL ACTIF LORS DE L'EXECUTION -->
-		        <activeByDefault>false</activeByDefault>
+		        <activeByDefault>true</activeByDefault>
 		    </activation>
 		    <build>
 			    <resources>
@@ -140,7 +140,7 @@
 		    </properties>
 		    <activation>
 		    	<!-- PROFIL ACTIF LORS DE L'EXECUTION -->
-		        <activeByDefault>true</activeByDefault>
+		        <activeByDefault>false</activeByDefault>
 		    </activation>
 		    <build>
 			    <resources>
@@ -182,6 +182,10 @@
 			
 	</profiles>	
 
+	
+	<!-- ======================================== -->
+	<!--                DEPENDANCES               -->
+	<!-- ======================================== -->
 	<dependencies>
 			
 		<!-- ================================ -->
