@@ -4,6 +4,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -17,6 +19,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * <li>L'annotation <code>EnableConfigServer</code> déclare à SPRING 
  * qu'il s'agit d'un MICRO-SERVICE TECHNIQUE de CENTRALISATION 
  * de la CONFIGURATION.</li>
+ * <li>L'annotation <code>EnableConfigurationProperties</code> déclare à SPRING 
+ * que l'on peut écrire un Bean qui récupère les valeurs 
+ * dans les applications.properties.</li>
+ * <li>L'annotation <code>EnableDiscoveryClient</code> déclare à SPRING 
+ * que ce Micro-Service s'enregistre auprès du serveur annuaire EUREKA.</li>
  * <li>L'annotation <code>EnableSwagger2</code> déclare à SPRING 
  * que l'on va générer la documentation du MICRO-SERVICE avec Swagger2.</li>
  * </ul>
@@ -36,6 +43,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @version 1.0
  * @since 20 oct. 2020
  */
+@EnableConfigurationProperties
+@EnableDiscoveryClient
 @EnableConfigServer
 @EnableSwagger2
 @SpringBootApplication
