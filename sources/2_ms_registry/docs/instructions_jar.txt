@@ -1,0 +1,24 @@
+﻿
+- PACKAGE MAVEN (se mettre dans le dossier contenant le projet Eclipse et taper dans une console (terminal)) :
+D:\Donnees\eclipse\sts_workspace\micro-service_registry_youssfi_backend>	mvn clean package -Pprod
+
+- PACKAGE MAVEN en SKIPPANT LES TESTS UNITAIRES(se mettre dans le dossier contenant le projet Eclipse et taper dans une console (terminal)) :
+D:\Donnees\eclipse\sts_workspace\micro-service_registry_youssfi_backend>	mvn clean package -Pprod -Dmaven.test.skip=true
+
+
+- LANCER LE JAR DE PROD DE L'ANNUAIRE (REGISTRY) EN FIXANT DYNAMIQUEMENT LE PORT (se mettre dans le répertoire contenant le jar  et taper dans une console (terminal)): 
+java -jar ms_eureka_registry-1.0.0.jar --server.port=8766
+
+
+- LANCER LE JAR DE PROD D'UN MICRO-SERVICE METIER EN FIXANT DYNAMIQUEMENT LE PORT ET l' URL DU SERVEUR EUREKA(se mettre dans le répertoire contenant le jar et taper dans une console (terminal)): 
+java -jar ms-produit-1.0.0.jar --server.port=8001 --eureka.client.service-url.defaultZone=http://localhost:8766/eureka
+
+- LANCER LE JAR DE PROD D'UN MICRO-SERVICE METIER EN FIXANT DYNAMIQUEMENT LE PORT ET l' URL DU SERVEUR EUREKA(se mettre dans le répertoire contenant le jar et taper dans une console (terminal)): 
+java -jar ms-customer-1.0.0.jar --server.port=8002 --eureka.client.service-url.defaultZone=http://localhost:8766/eureka
+
+- LANCER LE JAR DE PROD D'UN MICRO-SERVICE METIER FEIGN EN FIXANT DYNAMIQUEMENT LE PORT ET l' URL DU SERVEUR EUREKA(se mettre dans le répertoire contenant le jar et taper dans une console (terminal)): 
+java -jar ms-billing-1.0.0.jar --server.port=8003 --eureka.client.service-url.defaultZone=http://localhost:8766/eureka
+
+
+- LANCER LE JAR DE PROD D'UN MICRO-SERVICE PROXY GATEWAY EN FIXANT DYNAMIQUEMENT LE PORT ET l' URL DU SERVEUR EUREKA(se mettre dans le répertoire contenant le jar et taper dans une console (terminal)): 
+java -jar ms-gateway-1.0.0.jar --server.port=9999 --eureka.client.service-url.defaultZone=http://localhost:8766/eureka

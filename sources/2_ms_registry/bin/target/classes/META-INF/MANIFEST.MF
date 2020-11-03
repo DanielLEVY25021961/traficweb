@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Build-Jdk-Spec: 15
+Implementation-Title: 2_ms_registry
+Implementation-Version: 1.0.0
+Main-Class: levy.daniel.application.Application
+Created-By: Maven Integration for Eclipse
+
