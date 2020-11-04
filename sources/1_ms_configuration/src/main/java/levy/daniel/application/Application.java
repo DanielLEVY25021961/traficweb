@@ -17,8 +17,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * <li>L'annotation <code>SpringBootApplication</code> déclare à SPRING 
  * qu'il s'agit de la classe APPLICATIVE.</li>
  * <li>L'annotation <code>EnableConfigServer</code> déclare à SPRING 
- * qu'il s'agit d'un MICRO-SERVICE TECHNIQUE de CENTRALISATION 
- * de la CONFIGURATION.</li>
+ * qu'il s'agit d'un <strong>MICRO-SERVICE TECHNIQUE CONFIG SERVER 
+ * de CENTRALISATION de la CONFIGURATION</strong>.</li>
  * <li>L'annotation <code>EnableConfigurationProperties</code> déclare à SPRING 
  * que l'on peut écrire un Bean qui récupère les valeurs 
  * dans les applications.properties.</li>
@@ -72,8 +72,9 @@ public class Application {  // NOPMD by dan on 20/10/2020 12:44
 	
 	
 	/**
-	 * Point d'entrée de l'application.
-	 * @param pArgs : String[].
+	 * Point d'entrée de l'application (Micro-Service).
+	 * 
+	 * @param pArgs : String[] : paramètres de lancement du Micro-Service.
 	 */
 	public static void main(final String... pArgs) {
 		SpringApplication.run(Application.class, pArgs);

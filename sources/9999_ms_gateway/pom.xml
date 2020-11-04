@@ -9,14 +9,14 @@
          <!-- ================================================== -->
          
 
-	<!-- Version du POM. -->
+	<!-- Version du POM. -->	
 	<modelVersion>4.0.0</modelVersion>
 	
-	<!-- POM PARENT SPRING BOOT -->
+	<!-- POM PARENT SPRING BOOT -->	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.4.RELEASE</version>
+		<version>2.3.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -29,18 +29,18 @@
 	<!-- V : version : version du projet                            -->
 	<!-- ========================================================== -->
 	
-	<!-- domaine (espace de nom) appelé GROUPE (G) dans Maven -->		
+	<!-- domaine (espace de nom) appelé GROUPE (G) dans Maven -->			
 	<groupId>levy.daniel.application</groupId>
 			
 	<!-- NOM DU FUTUR FUTUR LIVRABLE (JAR, WAR, POM, ...) généré 
 	appelé artifactId (A) dans Maven -->
-	<!-- également le nom du projet MAVEN JAVA généré dans ECLIPSE -->
-	<artifactId>1_ms_configuration</artifactId>
+	<!-- également le nom du projet MAVEN JAVA généré dans ECLIPSE -->	
+	<artifactId>9999_ms_gateway</artifactId>
 	
 	<!-- VERSION DU FUTUR LIVRABLE (JAR, WAR, POM, ...) -->
 	<!-- Si Version Bêta de développement (SNAPSHOT) -->
-	<!--non incrémentée dans Maven -->	
-	<version>1.0.0</version>
+	<!--non incrémentée dans Maven -->		
+	<version>1.00</version>
 
 
 	<!-- ========================================================== -->
@@ -55,11 +55,11 @@
 	<!-- INTERVIENT DANS LES LOGS MAVEN LORS DU BUILD. 
 	Par exemple, "Building 'bidon_name' 0.0.1-SNAPSHOT" -->
 	<!-- N'interfère pas dans le nom du livrable créé. 
-	C'est artifactId qui compte. -->
-	<name>1_ms_configuration</name>
+	C'est artifactId qui compte. -->	
+	<name>9999_ms_gateway</name>
 	
-	<!-- Description de l'application générée par le projet Maven -->
-	<description>Micro-Service TECHNIQUE de CONFIGURATION</description>
+	<!-- Description de l'application générée par le projet Maven -->	
+	<description>Micro-Service TECHNIQUE de Gateway (Proxy) de l'application</description>
 	
 	<!-- URL éventuelle permettant de se connecter à l'application -->
 	<url>http://${urlServer}:${portServer}</url>
@@ -96,6 +96,9 @@
 		
 		<!-- VERSION DE SPRING-CLOUD -->		
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+		
+		<!-- VERSION DE SPRING-BOOT ADMIN -->
+		<spring-boot-admin.version>2.3.0</spring-boot-admin.version>
 		
 	</properties>
 
@@ -187,35 +190,63 @@
 	<!--                DEPENDANCES               -->
 	<!-- ======================================== -->
 	<dependencies>
-			
+				
 		<!-- ================================ -->
 		<!-- dépendances pour SPRING BOOT     -->
 		<!-- ================================ -->
-		<!-- SPRING WEB MVC -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		
-		<!-- SPRING JSON FORMAT HATEOAS -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-hateoas</artifactId>
-		</dependency>
 	
-		<!-- SERVEUR DE CONFIGURATION -->
+		<!-- PROXY GATEWAY ASYNCHRONE (non bloquant) -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
 		</dependency>
 		
-		
+		<!-- CLIENT DU SERVICE DE CONFIGURATION -->	
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+				
 		<!-- CLIENT ANNUAIRE DE MICRO-SERVICES (REGISTRY) EUREKA -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		
+		<!-- CIRCUIT BREAKER HYSTRIX -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+		</dependency>
+		
+		<!-- PROFILER MONITORING ACTUATOR -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-starter-client</artifactId>
+		</dependency>
+		
+		<!-- Traçage des requêtes - DEBUGGAGE -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-sleuth</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
+
 		<!-- SPRING DEV TOOLS -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -223,8 +254,22 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+				
+		<!-- ====================================================== -->
+		<!--        DEPENDANCES Instrumentation de code  			-->
+		<!-- ====================================================== -->	
+		<!-- LOMBOK -->					
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 		
-		<!-- SPRING TEST UNITAIRES -->
+				
+		<!-- ====================================================== -->
+		<!--        DEPENDANCES POUR TESTS JUNIT 5  				-->
+		<!-- ====================================================== -->
+		<!-- JUnit 5 JUPITER -->				
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -236,7 +281,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		
+				
 		<!-- DOCUMENTATION DU MICRO-SERVICE -->
 		<!-- SWAGGER 2 pour SPRING-BOOT -->
 		<dependency>
@@ -244,22 +289,10 @@
 		    <artifactId>springfox-boot-starter</artifactId>
 		    <version>3.0.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
-<!-- 		<dependency> -->
-<!-- 		    <groupId>io.springfox</groupId> -->
-<!-- 		    <artifactId>springfox-swagger2</artifactId> -->
-<!-- 		    <version>3.0.0</version> -->
-<!-- 		</dependency> -->
-		<!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
-<!-- 		<dependency> -->
-<!-- 		    <groupId>io.springfox</groupId> -->
-<!-- 		    <artifactId>springfox-swagger-ui</artifactId> -->
-<!-- 		    <version>3.0.0</version> -->
-<!-- 		</dependency> -->
-				
+		
 	</dependencies>
-
-
+	
+			
 	<!-- =========================================== -->
 	<!-- MANAGEMENT des dépendances WEB CLOUD     	 -->
 	<!-- =========================================== -->			
@@ -269,6 +302,13 @@
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-dependencies</artifactId>
+				<version>${spring-boot-admin.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
