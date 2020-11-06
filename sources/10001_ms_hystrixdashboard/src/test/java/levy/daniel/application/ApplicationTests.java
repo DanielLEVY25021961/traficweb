@@ -3,7 +3,6 @@ package levy.daniel.application;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
 /**
  * CLASSE ApplicationTests :<br/>
  * .<br/>
@@ -21,7 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  *
  * @author Daniel Lévy
  * @version 1.0
- * @since 4 oct. 2020
+ * @since 6 nov. 2020
  */
 @SpringBootTest
 public class ApplicationTests {
